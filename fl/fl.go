@@ -3,7 +3,6 @@ package fl
 import (
 	"fmt"
 	"io"
-	"math/rand"
 	"os"
 	"time"
 )
@@ -38,16 +37,6 @@ func FileExists(path string) bool {
 		return false
 	}
 	return true
-}
-
-func RandStringBytes(n int) string {
-	letterBytes := "abcdefghijklmnopqrstuvwxyz0123456789"
-	rand.Seed(time.Now().UnixNano())
-	b := make([]byte, n)
-	for i := range b {
-		b[i] = letterBytes[rand.Intn(len(letterBytes))]
-	}
-	return string(b)
 }
 
 func Copy(src, dst string) (int64, error) {
